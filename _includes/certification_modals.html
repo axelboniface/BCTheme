@@ -1,0 +1,47 @@
+<!-- Portfolio Modals -->
+{% for certification in site.certifications %}
+<div class="certification-modal modal fade" id="certificationModal-{{ certification.modal-id }}" tabindex="-1" role="dialog"
+  aria-hidden="true">
+  <div class="modal-content">
+    <div class="close-modal" data-dismiss="modal">
+      <div class="lr">
+        <div class="rl">
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+          <div class="modal-body">
+            <h2 class="text-center">{{ certification.title }}</h2>
+            <hr class="star-primary">
+            <img src="img/certification/{{ certification.img }}" class="img-responsive img-centered" alt="{{ certification.alt }}">
+            {% if certification.description %}
+            <p>{{ certification.description }}</p>
+            {% endif %}
+            <ul class="list-inline item-details">
+              {% if certification.company %}
+              <li>Company:
+                <strong>{{ certification.company }}</strong>
+              </li>
+              {% endif %}
+              {% if certification.graduation-date %}
+              <li>Date:
+                <strong>{{ certification.graduation-date }}</strong>
+              </li>
+              {% endif %}
+              {% if certification.category %}
+              <li>Service:
+                <strong>{{ certification.category }}</strong>
+              </li>
+              {% endif %}
+            </ul>
+            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i>
+              Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endfor %}
